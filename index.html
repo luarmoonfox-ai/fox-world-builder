@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOX WORLD BUILDER</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #101827;
+      color: white;
+    }
+    header {
+      padding: 22px;
+      background: #17243a;
+      text-align: center;
+      border-bottom: 2px solid #00d9ff;
+    }
+    h1 { color: #00d9ff; }
+    main {
+      max-width: 750px;
+      margin: 35px auto;
+      padding: 20px;
+    }
+    input, button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 12px;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+    input {
+      background: #25344c;
+      border: 1px solid #00d9ff;
+      color: white;
+    }
+    button {
+      background: #00bcd4;
+      border: 0;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #world {
+      margin-top: 25px;
+      min-height: 260px;
+      padding: 20px;
+      border: 2px solid #00d9ff;
+      border-radius: 12px;
+      background: #203d35;
+      text-align: center;
+    }
+    .block {
+      display: inline-block;
+      padding: 12px;
+      margin: 5px;
+      background: #b86b35;
+      border: 2px solid #75401e;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🦊 FOX WORLD BUILDER</h1>
+    <p>Imagine. Descreva. Construa.</p>
+  </header>
+
+  <main>
+    <h2>Construtor de mundos</h2>
+    <p>Descreva o que deseja construir:</p>
+    <input id="description" placeholder="Ex.: uma casa vermelha">
+    <button onclick="build()">Construir no mundo</button>
+    <div id="world">
+      <h3>🌎 Meu mundo</h3>
+      <p>Suas construções aparecerão aqui.</p>
+    </div>
+  </main>
+
+  <script>
+    function build() {
+      const description = document
+        .getElementById("description").value.trim();
+
+      if (!description) {
+        alert("Escreva uma construção primeiro!");
+        return;
+      }
+
+      const world = document.getElementById("world");
+      const construction = document.createElement("div");
+      construction.className = "block";
+      construction.textContent = "🏠 " + description;
+      world.appendChild(construction);
+      document.getElementById("description").value = "";
+    }
+  </script>
+</body>
+</html>
